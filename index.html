@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+
+    <title>Javascript Challenges</title>
+   
+   
+   
+  </head>
+  <body>
+          <!--JS Challenge One -->
+		  
+    <section>
+      
+
+
+        <div class="compareNum">
+          <form>
+            <!--Textfield for user input -->
+            <h3>JavaScript Challenges</h3>
+			<br>
+            <h3>JavaScript program that checks two numbers and returns true if one of the numbers is 65 or if their sum is 65.</h3>
+				
+
+           <input type = "text"  id = "txtOne"  placeholder="Type in input one" >
+           <input type = "text" id = "txtTwo"  placeholder="Type in input two" >
+		   <button onclick ="Compare()">Submit</button>
+			</form>
+			
+			
+			<form>
+			<br>
+			<hr>
+			<div class= "commonLetters">
+			<h3>JavaScript program that takes two strings as input, and outputs the common characters/letters that they share</h3>
+				  
+				  <em>For this challenge, please view the results using console.</em>
+			</div>
+				  <br>
+				  <hr>
+			</form>
+			<script>
+              /*Getting user input using*/
+              function Compare()
+              {
+					
+
+             var   inputOne = document.getElementById("txtOne").value;
+             var    inputTwo = document.getElementById("txtTwo").value;
+             var  sumUp = parseInt(document.getElementById("txtOne").value)+parseInt(document.getElementById("txtTwo").value);
+                 if(inputOne==65) {
+                   
+                   
+				   window.alert("True:Input one contains "+ inputOne);
+				   return true;
+                   
+                     
+
+                   } else{window.alert("False:Input one does not contain 65, but "+ inputOne);}
+				   if(inputTwo==65) {
+                    window.alert("Input two contains "+inputTwo);
+				   return true;
+                 }else{window.alert("False:Input two does not contain 65, but "+ inputTwo);}
+				 
+				 if (sumUp==65) {
+                     
+                       window.alert("True:Input one and input two do sum up to 65."); 
+					    return true;
+                     }else{window.alert("False:Inputs do not sum up to 65");}
+					 
+
+              }
+			  
+			  /*Area*/
+			   function calArea()
+        {
+          var sideOne, sideTwo, sideThree, parameter,area;
+          sideOne=7;
+          sideTwo=8;
+          sideThree=9;
+
+          parameter = 0.5*(sideOne+sideTwo+sideThree);
+          area = Math.sqrt(parameter*((parameter-sideOne)*(parameter-sideTwo)*(parameter-sideThree)));
+           window.alert("Area= "+area);
+           console.log(area);
+
+		   }
+		   
+		   
+		   /*Largest Number*/
+		  
+			function largestNum()
+			{
+				var input1, input2, input3;
+				input1 = Number(document.getElementById("a").value);
+				input2 = Number(document.getElementById("b").value);
+				input3 = Number(document.getElementById("c").value);
+
+				if(input1>input2 && input1>input3)
+				{
+					window.alert(input1+ " is the largest number");
+				}
+				else if(input2>input1 && input2>input3)
+				{
+					window.alert(input2 + "is the largest number");
+				}
+				else if(input3>input1 && input3>input1)
+				{
+					window.alert(input3 + " is the largest number");
+				}
+			}
+			/*Converting Numbers to hours*/
+					/*function timeConverter()
+					 { 
+					 var num1;
+					num1 = document.getElementById("t1").value;
+					
+					  var hour = Math.floor(num1 / 60); 
+					  var minute = num1 % 60;
+					  return hour+":"+minute;
+							console.log(timeConverter());
+							window.alert("Hours: "+hour+" Minutes "+minute);  
+					}
+						*/
+						
+					
+					
+function timeConverter(dig)
+ { 
+  
+  var m = dig % 60;
+  var h = Math.floor(dig / 60);  
+  return h + ":" + m;         
+}
+
+console.log(timeConverter(71));
+console.log(timeConverter(133));
+					
+					
+					/*Common Leters*/
+					
+			let input = "house, computer, snake, cake";
+
+let words = input.match(/(\w+)/g);
+
+let letters = {};
+
+
+words = words.map(function(word) {
+  return {
+    word: word,
+    lastLetter: word.slice(-1)
+  }
+});
+
+
+words.forEach(function(elem) {
+  letters[elem.lastLetter] = letters[elem.lastLetter] || 0;
+  letters[elem.lastLetter] ++;
+});
+
+/*sorting*/
+let mostPresentLetter = Object.keys(letters).sort(function(a, b) {
+  return letters[b] - letters[a]
+})[0];
+
+/*displaying common letters*/
+console.log("Common letter : " + mostPresentLetter);
+
+console.log("Words : " + words.filter(function(item) {
+  return item.lastLetter === mostPresentLetter;
+}).map(function(o) {
+  return o.word;
+}));
+
+			</script>
+      
+           
+           
+			
+            
+			
+
+       
+    </section>
+	<!--Area-->
+	<section >
+	 <div class="area">
+			<h3> JavaScript program that returns the area of a triangle where the lengths of its three sides are 7, 8, 9.</h3>
+			<em>Click this button to view the area<em><button  onclick="calArea()">View</button>
+      
+		
+		</div>
+
+	</section>
+	<section>
+	<div class="largest">
+	<form>
+	<br>
+	<hr>
+			<h3>JavaScript program that returns the largest of three numbers.</h3>
+		
+		
+		Enter number 1: <input type="text" id="a"></input><br>
+		Enter number 2: <input type="text" id="b"></input><br>
+		Enter number 3: <input type="text" id="c"></input><br>
+		
+		<button onclick="largestNum()">Check</button>
+          </form></div>
+		  <br>
+		  <hr>
+	</section>
+	
+	<section>
+	<div class="convert">
+	<h3>JavaScript program to convert any number into hours and minutes. (For example, 71 will become 1 hour, 11 minutes; 133 will become 2 hours, 13 minutes.)<h3>
+	<em>For this challenge, please view the results using console.<em>
+		
+	
+	</div>
+	</section>
+
+
+
+  </body>
+</html>
